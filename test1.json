@@ -1,0 +1,234 @@
+{
+    "regularPrice": 1500,
+    "finalPrice": 1500,
+    "bundle": null,
+    "banner": null,
+    "giftable": true,
+    "refundable": true,
+    "sortPriority": -2,
+    "categories": [
+        "Panel 02"
+    ],
+    "sectionId": "Featured2",
+    "section": {
+        "id": "Featured2",
+        "name": "Рекомендуемое",
+        "index": 101,
+        "landingPriority": 64,
+        "sortOffersByOwnership": false,
+        "showIneligibleOffers": true,
+        "showIneligibleOffersIfGiftable": false,
+        "showTimer": false,
+        "enableToastNotification": true,
+        "hidden": false
+    },
+    "devName": "[VIRTUAL]1 x Beef Boss, 1 x Deep Fried for 1500 MtxCurrency",
+    "offerId": "v2:/bb2386f167e0f5d10d6c673fa1fc8668f713d29566792bf53980218d20ebbe3f",
+    "displayAssetPath": "FortniteGame/Content/Catalog/DisplayAssets/DA_Featured_CID_185_Athena_Commando_M_DurrburgerHero",
+    "tileSize": "Normal",
+    "newDisplayAssetPath": "FortniteGame/Content/Catalog/NewDisplayAssets/DAv2_CID_185_M_DurrburgerHero",
+    "newDisplayAsset": {
+        "id": "DAv2_CID_185_M_DurrburgerHero",
+        "cosmeticId": "CID_185_Athena_Commando_M_DurrburgerHero",
+        "materialInstances": [
+            {
+                "id": "MI_CID_185_M_DurrburgerHero",
+                "images": {
+                    "OfferImage": "https://fortnite-api.com/images/cosmetics/br/materialinstances/mi_cid_185_m_durrburgerhero/offerimage.png",
+                    "Background": "https://fortnite-api.com/images/cosmetics/br/materialinstances/mi_cid_185_m_durrburgerhero/background_v1-2.webp"
+                },
+                "colors": {
+                    "Background_Color_A": "b36330ff",
+                    "Background_Color_B": "fdcc6bff",
+                    "FallOff_Color": "da8144ff"
+                },
+                "scalings": {
+                    "Gradient_Hardness": 14,
+                    "Gradient_Position_X": 50,
+                    "Gradient_Position_Y": 43.843357,
+                    "Gradient_Size": 58.399487,
+                    "Spotlight_Intensity": 70,
+                    "Spotlight_Position_X": 50,
+                    "Spotlight_Position_Y": 14.516436,
+                    "Spotlight_Size": 85.72692,
+                    "FallOffColor_Fill_Percent": 33,
+                    "FallOffColor_Postion": 60,
+                    "OffsetImage_X": 0,
+                    "OffsetImage_Y": 0,
+                    "ZoomImage_Percent": 0,
+                    "RefractionDepthBias": 0
+                },
+                "flags": null
+            }
+        ]
+    },
+    "items": [
+        {
+            "id": "CID_185_Athena_Commando_M_DurrburgerHero",
+            "name": "Бургермен",
+            "description": "Герой нашего времени.",
+            "type": {
+                "value": "outfit",
+                "displayValue": "Экипировка",
+                "backendValue": "AthenaCharacter"
+            },
+            "rarity": {
+                "value": "epic",
+                "displayValue": "Эпический",
+                "backendValue": "EFortRarity::Epic"
+            },
+            "series": null,
+            "set": {
+                "value": "Фастфуд",
+                "text": "Входит в набор «Фастфуд».",
+                "backendValue": "DurrrBurger"
+            },
+            "introduction": {
+                "chapter": "1",
+                "season": "5",
+                "text": "Первое появление: Глава 1, Сезон 5.",
+                "backendValue": 5
+            },
+            "images": {
+                "smallIcon": "https://fortnite-api.com/images/cosmetics/br/cid_185_athena_commando_m_durrburgerhero/smallicon.png",
+                "icon": "https://fortnite-api.com/images/cosmetics/br/cid_185_athena_commando_m_durrburgerhero/icon.png",
+                "featured": "https://fortnite-api.com/images/cosmetics/br/cid_185_athena_commando_m_durrburgerhero/featured.png",
+                "other": null
+            },
+            "variants": null,
+            "searchTags": null,
+            "gameplayTags": [
+                "Cosmetics.Source.ItemShop",
+                "Cosmetics.Set.DurrrBurger",
+                "Cosmetics.Filter.Season.5",
+                "SoundLibrary.ID.StepType.BootsCombat",
+                "SoundLibrary.ID.ClothingType.GearTactical",
+                "SoundLibrary.ID.HandType.Glove"
+            ],
+            "metaTags": null,
+            "showcaseVideo": "HbssnUggenY",
+            "dynamicPakId": null,
+            "displayAssetPath": "FortniteGame/Content/Catalog/DisplayAssets/DA_Featured_CID_185_Athena_Commando_M_DurrburgerHero",
+            "definitionPath": "FortniteGame/Content/Athena/Heroes/HID_185_Athena_Commando_M_DurrburgerHero",
+            "path": "FortniteGame/Content/Athena/Items/Cosmetics/Characters/CID_185_Athena_Commando_M_DurrburgerHero",
+            "added": "2019-11-20T12:50:19Z",
+            "shopHistory": [
+                "2018-08-10T00:00:00Z",
+                "2018-08-11T00:00:00Z",
+                "2018-09-13T00:00:00Z",
+                "2018-10-23T00:00:00Z",
+                "2018-11-14T00:00:00Z",
+                "2018-11-15T00:00:00Z",
+                "2019-02-11T00:00:00Z",
+                "2019-03-28T00:00:00Z",
+                "2019-04-23T00:00:00Z",
+                "2019-05-22T00:00:00Z",
+                "2019-09-16T00:00:00Z",
+                "2019-11-28T00:00:00Z",
+                "2020-01-29T00:00:00Z",
+                "2020-03-20T00:00:00Z",
+                "2020-04-24T00:00:00Z",
+                "2020-05-26T00:00:00Z",
+                "2020-05-26T14:00:00Z",
+                "2020-06-25T00:00:00Z",
+                "2020-07-24T00:00:00Z",
+                "2020-08-27T00:00:00Z",
+                "2020-09-23T00:00:00Z",
+                "2020-11-08T00:00:00Z",
+                "2021-01-18T00:00:00Z",
+                "2021-02-24T00:00:00Z",
+                "2021-06-03T00:00:00Z",
+                "2021-07-28T00:00:00Z",
+                "2021-12-03T00:00:00Z",
+                "2022-01-28T00:00:00Z",
+                "2022-03-01T00:00:00Z",
+                "2022-07-12T00:00:00Z",
+                "2022-07-13T00:00:00Z",
+                "2022-07-14T00:00:00Z",
+                "2022-07-15T00:00:00Z",
+                "2022-07-16T00:00:00Z",
+                "2022-10-21T00:00:00Z",
+                "2022-11-24T00:00:00Z",
+                "2022-11-25T00:00:00Z",
+                "2022-11-26T00:00:00Z",
+                "2022-12-17T00:00:00Z",
+                "2023-01-17T00:00:00Z"
+            ]
+        },
+        {
+            "id": "BID_091_DurrrBurgerHero",
+            "name": "Картофель фри",
+            "description": "М-м-м, столько масла, а как хрустит!",
+            "type": {
+                "value": "backpack",
+                "displayValue": "Украшение на спину",
+                "backendValue": "AthenaBackpack"
+            },
+            "rarity": {
+                "value": "epic",
+                "displayValue": "Эпический",
+                "backendValue": "EFortRarity::Epic"
+            },
+            "series": null,
+            "set": {
+                "value": "Фастфуд",
+                "text": "Входит в набор «Фастфуд».",
+                "backendValue": "DurrrBurger"
+            },
+            "introduction": {
+                "chapter": "1",
+                "season": "5",
+                "text": "Первое появление: Глава 1, Сезон 5.",
+                "backendValue": 5
+            },
+            "images": {
+                "smallIcon": "https://fortnite-api.com/images/cosmetics/br/bid_091_durrrburgerhero/smallicon.png",
+                "icon": "https://fortnite-api.com/images/cosmetics/br/bid_091_durrrburgerhero/icon.png",
+                "featured": null,
+                "other": null
+            },
+            "variants": null,
+            "searchTags": null,
+            "gameplayTags": [
+                "Cosmetics.Set.DurrrBurger",
+                "Cosmetics.Source.ItemShop",
+                "Cosmetics.Filter.Season.5"
+            ],
+            "metaTags": null,
+            "showcaseVideo": "u3T9JcClC3Y",
+            "dynamicPakId": null,
+            "itemPreviewHeroPath": "FortniteGame/Content/Athena/Items/Cosmetics/Characters/CID_185_Athena_Commando_M_DurrburgerHero",
+            "displayAssetPath": null,
+            "definitionPath": null,
+            "path": "FortniteGame/Content/Athena/Items/Cosmetics/Backpacks/BID_091_DurrrBurgerHero",
+            "added": "2019-11-20T12:50:39Z",
+            "shopHistory": [
+                "2020-05-26T00:00:00Z",
+                "2020-05-26T14:00:00Z",
+                "2020-06-25T00:00:00Z",
+                "2020-07-24T00:00:00Z",
+                "2020-08-27T00:00:00Z",
+                "2020-09-23T00:00:00Z",
+                "2020-11-08T00:00:00Z",
+                "2021-01-18T00:00:00Z",
+                "2021-02-24T00:00:00Z",
+                "2021-06-03T00:00:00Z",
+                "2021-07-28T00:00:00Z",
+                "2021-12-03T00:00:00Z",
+                "2022-01-28T00:00:00Z",
+                "2022-03-01T00:00:00Z",
+                "2022-07-12T00:00:00Z",
+                "2022-07-13T00:00:00Z",
+                "2022-07-14T00:00:00Z",
+                "2022-07-15T00:00:00Z",
+                "2022-07-16T00:00:00Z",
+                "2022-10-21T00:00:00Z",
+                "2022-11-24T00:00:00Z",
+                "2022-11-25T00:00:00Z",
+                "2022-11-26T00:00:00Z",
+                "2022-12-17T00:00:00Z",
+                "2023-01-17T00:00:00Z"
+            ]
+        }
+    ]
+}

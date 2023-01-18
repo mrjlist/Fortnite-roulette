@@ -1,0 +1,70 @@
+body{
+  font-family: 'Titillium Web', sans-serif;
+  background:#191B28;
+}
+
+.roulette-wrapper{
+  position:relative;
+  display:flex;
+  justify-content:center;
+  width:100%;
+  margin:0 auto;
+  overflow:hidden;
+}
+
+.roulette-wrapper .selector{
+  width:3px;
+  background:grey;
+  left:50%;
+  height:100%;
+  transform:translate(-50%,0%);
+  position:absolute;
+  z-index:2;
+}
+
+.roulette-wrapper .wheel{
+  display:flex;
+}
+
+.roulette-wrapper .wheel .row{
+  display:flex;
+}
+
+/* img{
+  height:75px;
+  width:75px;
+} */
+.roulette-wrapper .wheel .row .card img{
+  height:300px;
+  width:300px;
+  margin:3px;
+  border-radius:8px;
+}
+.roulette-wrapper .wheel .row .card{
+  height:300px;
+  width:300px;
+  margin:3px;
+  border-radius:8px;
+  border-bottom:3px solid rgba(0,0,0,0.2);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.roulette-wrapper .wheel .row .card h3{
+  margin-left: -170px;
+  margin-top: 280px;
+  color: white;
+}
+.roulette-wrapper .wheel .row .card .rar_null h3{
+  margin-bottom: 9px;
+  margin-right: 3px;
+  margin-left: -303px;
+  margin-top: 280px;
+  background-color: red;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  text-align: center;
+}
+/* *{
+  box-sizing:border-box;
+} */
