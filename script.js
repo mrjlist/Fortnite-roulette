@@ -2,12 +2,20 @@ $(document).ready(function() {
 	//setup multiple rows of colours, can also add and remove while spinning but overall this is easier.
   import_images();
 	initWheel();
- 
+  setTimeout(spinWheel,1 * 1000);
+  
  	$('button').on('click', function(){
 		var outcome = parseInt($('input').val());
-    spinWheel(outcome);
+    spinWheel(2);
+    // for (let i = 0; i < 100; i++) {
+    //   var xe = getRandomNumber();
+    //   if (xe != undefined) {
+    //     console.log(xe);
+    //   }
+      
+    // }
+    });
   });
-});
 
 function import_images(){
   
@@ -134,30 +142,54 @@ function generate_order(){
   return(final);
 }
 
-function spinWheel(rol){
-  var roll = Math.random(window.List_img.length);
-  console.log(roll);
+function getRandomNumber() {
+  const groups = [1, 2, 3, 4, 5, 6];
+  const chances = [0.6, 0.2, 0.1, 0.05, 0.02, 0.01];
+  const price = {
+    1: 500,
+    2: [500, 800],
+    3: [800, 1000],
+    4: [1000, 1500], 
+    5: [1500, 2000], 
+    6: 2000
+  }
+  let randomNumber = Math.random();
+  let cumulativeChance = 0;
+
+  for (let i = 0; i < groups.length; i++) {
+    cumulativeChance += chances[i];
+    if (randomNumber < cumulativeChance) {
+      return price[groups[i]];
+    }
+  }
+}
+
+function spinWheel(){
+  var roll = 2;
   var $wheel = $('.roulette-wrapper .wheel'),
   		order = generate_order(),
-      position = order.indexOf(roll);
-            
+      position = order.indexOf(roll),
+      size_card = 306;
+  console.log(position);
   //determine position where to land
   var rows = 12,
   		card = 300 + 3 * 2,
       landingPosition = (rows * window.List_img.length * card) + (position * card);
-  	
+  
   var randomize = Math.floor(Math.random() * 300) - (300/2);
-    
+  
   landingPosition = landingPosition + randomize;
     
   var object = {
 		x: Math.floor(Math.random() * 50) / 100,
     y: Math.floor(Math.random() * 20) / 100
 	};
-  
+
+  console.log(card, landingPosition, randomize, object);  
+
   $wheel.css({
 		'transition-timing-function':'cubic-bezier(0,'+ object.x +','+ object.y + ',1)',
-		'transition-duration':'6s',
+		'transition-duration':'10s',
 		'transform':'translate3d(-'+landingPosition+'px, 0px, 0px)'
 	});
   
@@ -169,5 +201,5 @@ function spinWheel(rol){
     
     var resetTo = -(position * card + randomize);
 		$wheel.css('transform', 'translate3d('+resetTo+'px, 0px, 0px)');
-  }, 6 * 1000);
+  }, 10 * 1000);
 }
