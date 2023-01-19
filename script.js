@@ -2,20 +2,11 @@ $(document).ready(function() {
 	//setup multiple rows of colours, can also add and remove while spinning but overall this is easier.
   import_images();
 	initWheel();
-  setTimeout(spinWheel,1 * 1000);
-  
- 	$('button').on('click', function(){
-		var outcome = parseInt($('input').val());
-    spinWheel(2);
-    // for (let i = 0; i < 100; i++) {
-    //   var xe = getRandomNumber();
-    //   if (xe != undefined) {
-    //     console.log(xe);
-    //   }
-      
-    // }
-    });
+  setTimeout(spinWheel, 3 * 1000);
   });
+
+list_rar = ['rare', 'legendary', 'epic', 'uncommon', 'common']
+window.list_rar
 
 function import_images(){
   
@@ -24,7 +15,14 @@ function import_images(){
       url: 'https://fortnite-api.com/v2/shop/br'
     }).done(data => {
       var list_img = [];
-
+      function cam1(q){
+        if (window.list_rar.includes(q)){
+          return q;
+        }
+        else{
+          return null;
+        }
+      }
       for(var x = 0; x < data["data"]["featured"]["entries"].length; x++){
         if(data["data"]["featured"]["entries"][x]["bundle"] != null){
           list_img.push(
@@ -40,7 +38,7 @@ function import_images(){
             {
               "image":`${data["data"]["featured"]["entries"][x]["newDisplayAsset"]["materialInstances"][0]["images"]["Background"]}`,
               "finalPrice": data["data"]["featured"]["entries"][x]["finalPrice"],
-              "rarity": data["data"]["featured"]["entries"][x]["items"][0]["rarity"]["value"]
+              "rarity": cam1(data["data"]["featured"]["entries"][x]["items"][0]["rarity"]["value"])
             }
           );
         }
@@ -61,7 +59,7 @@ function import_images(){
             {
               "image":`${data["data"]["daily"]["entries"][x]["newDisplayAsset"]["materialInstances"][0]["images"]["Background"]}`,
               "finalPrice": data["data"]["daily"]["entries"][x]["finalPrice"],
-              "rarity": data["data"]["daily"]["entries"][x]["items"][0]["rarity"]["value"]
+              "rarity": cam1(data["data"]["daily"]["entries"][x]["items"][0]["rarity"]["value"])
             }  
           );
         }
@@ -82,7 +80,7 @@ function import_images(){
             {
               "image":`${data["data"]["specialFeatured"]["entries"][x]["newDisplayAsset"]["materialInstances"][0]["images"]["Background"]}`,
               "finalPrice": data["data"]["specialFeatured"]["entries"][x]["finalPrice"],
-              "rarity": data["data"]["specialFeatured"]["entries"][x]["items"][0]["rarity"]["value"]
+              "rarity": cam1(data["data"]["specialFeatured"]["entries"][x]["items"][0]["rarity"]["value"])
             }
           );
         }
@@ -94,12 +92,11 @@ function import_images(){
 
   function data_img(data){
     window.List_img = data;
-    console.log(data.length);
     var row = "";
     row += "<div class='row'>";
 
     for(var x = 0; x < data.length; x++){
-      row += `  <div class='card'><div class='rar_${data[x]["rarity"]}'><h3>${data[x]["finalPrice"]}</h3></div><img src='${data[x]["image"]}'></div>`;
+      row += `  <div class='card'><div class='rar_${data[x]["rarity"]}' id='rart'><h3>${data[x]["finalPrice"]}</h3></div><img src='${data[x]["image"]}'></div>`;
     }
 
     row += "</div>";
@@ -118,7 +115,6 @@ function initWheel(row){
 }
 
 function generate_order(){
-  console.log(window.List_img);
   const impo = window.List_img.length;
   const r = Array.from({length: impo}, (_, i) => i + 1);
 
@@ -159,18 +155,57 @@ function getRandomNumber() {
   for (let i = 0; i < groups.length; i++) {
     cumulativeChance += chances[i];
     if (randomNumber < cumulativeChance) {
-      return price[groups[i]];
+      if (groups[i] == 1){
+        var inden = [];
+        for(var x = 0; x < window.List_img.length; x++){
+          if (window.List_img[x]["finalPrice"] <= price[groups[i]]){
+            inden.push(window.List_img[x]);
+          }
+        }
+        var prize = inden[Math.floor(Math.random() * inden.length) +1]
+        if (window.List_img.indexOf(prize) != -1){
+          console.log(window.List_img.indexOf(prize), prize);
+          return(window.List_img.indexOf(prize));
+        }
+        
+      }
+      else if(groups[i] == 6){
+        var inden = [];
+        for(var x = 0; x < window.List_img.length; x++){
+          if (window.List_img[x]["finalPrice"] >= price[groups[i]]){
+            inden.push(window.List_img[x]);
+          }
+        }
+        var prize = inden[Math.floor(Math.random() * inden.length) +1]
+        if (window.List_img.indexOf(prize) != -1){
+          console.log(window.List_img.indexOf(prize), prize);
+          return(window.List_img.indexOf(prize));
+        }
+      }
+      else{
+        var inden = [];
+        for(var x = 0; x < window.List_img.length; x++){
+          if (window.List_img[x]["finalPrice"] >= price[groups[i]][0] && window.List_img[x]["finalPrice"] <= price[groups[i]][1]){
+            inden.push(window.List_img[x]);
+          }
+        }
+        var prize = inden[Math.floor(Math.random() * inden.length) +1]
+        if (window.List_img.indexOf(prize) != -1){
+          console.log(window.List_img.indexOf(prize), prize);
+          return(window.List_img.indexOf(prize));
+        }
+      }
     }
   }
 }
 
 function spinWheel(){
-  var roll = 2;
+  var roll = getRandomNumber() +  2;
+  console.log(roll);
   var $wheel = $('.roulette-wrapper .wheel'),
   		order = generate_order(),
       position = order.indexOf(roll),
       size_card = 306;
-  console.log(position);
   //determine position where to land
   var rows = 12,
   		card = 300 + 3 * 2,
@@ -185,7 +220,6 @@ function spinWheel(){
     y: Math.floor(Math.random() * 20) / 100
 	};
 
-  console.log(card, landingPosition, randomize, object);  
 
   $wheel.css({
 		'transition-timing-function':'cubic-bezier(0,'+ object.x +','+ object.y + ',1)',
