@@ -96,7 +96,19 @@ function import_images(){
     row += "<div class='row'>";
 
     for(var x = 0; x < data.length; x++){
-      row += `  <div class='card'><div class='rar_${data[x]["rarity"]}' id='rart'><h3>${data[x]["finalPrice"]}</h3></div><img src='${data[x]["image"]}'></div>`;
+      row += `  <div class='card'>
+                  <div class='rar_${data[x]["rarity"]}' id='rart'>
+                    <h3>${data[x]["finalPrice"]}</h3>
+                  </div>
+                  <div class='vb' id='vbuks'>
+                    <img  src='https://fortnite-api.com/images/vbuck.png'>
+                  </div>
+                  <div class='aa' id='aaa'>
+                    <img src='${data[x]["image"]}'>
+                  </div>
+                  
+                  
+                </div>`;
     }
 
     row += "</div>";
