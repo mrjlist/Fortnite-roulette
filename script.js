@@ -151,7 +151,7 @@ function generate_order(){
 }
 
 function getRandomNumber() {
-  const groups = [6, 2, 3, 4, 5, 1];
+  const groups = [1, 2, 3, 4, 5, 6];
   const chances = [0.6, 0.2, 0.1, 0.05, 0.02, 0.01];
   const price = {
     1: 500,
