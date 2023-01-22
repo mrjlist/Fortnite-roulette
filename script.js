@@ -192,7 +192,7 @@ function spinWheel(){
   $wheel.css({
 		'transition-timing-function':'cubic-bezier(0.3, 0, 0, 1)',
 		'transition-duration':`${time-1}s`,
-		'transform':'translate3d(-'+landingPosition+'px, 0px, 0px)'
+		'transform':`translate3d(-${landingPosition}px, 0px, 0px)`
 	});
   
   setTimeout(function(){
