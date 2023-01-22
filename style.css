@@ -34,7 +34,7 @@ body{
   height:75px;
   width:75px;
 } */
-.roulette-wrapper .wheel .row .card .aa img{
+.roulette-wrapper .wheel .row .card .item_bg img{
   height:300px;
   width:300px;
   margin:3px;
@@ -43,7 +43,7 @@ body{
 .roulette-wrapper .wheel .row .card .vb img{
   height: 23px;
   width: 23px;
-  margin-top: 273px;
+  margin-top: 274px;
   border-radius: 8px;
   margin-right: -50px;
   margin-left: -196px;
@@ -63,65 +63,109 @@ body{
   margin-top: 280px;
   color: white;
 }
-.roulette-wrapper .wheel .row .card .rar_null h3{
+.roulette-wrapper .wheel .row .card h3{
   margin-bottom: 8px;
   margin-right: -303px;
-  margin-left:3px;
+  margin-left: 3px;
   margin-top: 274px;
-  background-color: red;
-  border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
   text-align: center;
+}
+.roulette-wrapper .wheel .row .card .rar_null h3{
+  background-color: red;
+}
+.roulette-wrapper .wheel .row .card .line_rar_null{
+  width: 100%;
+  height: 20px;
+  background-color: red;
+  margin-left: -3px;
+  margin-right: -303px;
+  margin-top: 282px;
+  margin-bottom: 10px;
+  transform: translateY(-100%) skewY(178deg);
+  transform-origin: right;
+  border-top: 3px solid black;
 }
 .roulette-wrapper .wheel .row .card .rar_rare h3{
-  margin-bottom: 8px;
-  margin-right: -303px;
-  margin-left:3px;
-  margin-top: 274px;
   background-color: blue;
-  border-bottom-right-radius: 8px;
-  border-bottom-left-radius: 8px;
-  text-align: center;
+}
+.roulette-wrapper .wheel .row .card .line_rar_rare{
+  width: 100%;
+  height: 20px;
+  background-color: blue;
+  margin-left: -3px;
+  margin-right: -303px;
+  margin-top: 282px;
+  margin-bottom: 10px;
+  transform: translateY(-100%) skewY(178deg);
+  transform-origin: right;
+  border-top: 3px solid black;
+   
 }
 .roulette-wrapper .wheel .row .card .rar_legendary h3{
-  margin-bottom: 8px;
-  margin-right: -303px;
-  margin-left:3px;
-  margin-top: 274px;
   background-color: gold;
-  border-bottom-right-radius: 8px;
-  border-bottom-left-radius: 8px;
-  text-align: center;
+}
+.roulette-wrapper .wheel .row .card .line_rar_legendary{
+  width: 100%;
+  height: 20px;
+  background-color: gold;
+  margin-left: -3px;
+  margin-right: -303px;
+  margin-top: 282px;
+  margin-bottom: 10px;
+  transform: translateY(-100%) skewY(178deg);
+  transform-origin: right;
+  border-top: 3px solid black;
+   
 }
 .roulette-wrapper .wheel .row .card .rar_epic h3{
-  margin-bottom: 8px;
-  margin-right: -303px;
-  margin-left:3px;
-  margin-top: 274px;
   background-color: purple;
-  border-bottom-right-radius: 8px;
-  border-bottom-left-radius: 8px;
-  text-align: center;
+}
+.roulette-wrapper .wheel .row .card .line_rar_epic{
+  width: 100%;
+  height: 20px;
+  background-color: purple;
+  margin-left: -3px;
+  margin-right: -303px;
+  margin-top: 282px;
+  margin-bottom: 10px;
+  transform: translateY(-100%) skewY(178deg);
+  transform-origin: right;
+  border-top: 3px solid black;
+   
 }
 .roulette-wrapper .wheel .row .card .rar_uncommon h3{
-  margin-bottom: 8px;
-  margin-right: -303px;
-  margin-left:3px;
-  margin-top: 274px;
   background-color: green;
-  border-bottom-right-radius: 8px;
-  border-bottom-left-radius: 8px;
-  text-align: center;
+}
+.roulette-wrapper .wheel .row .card .line_rar_uncommon{
+  width: 100%;
+  height: 20px;
+  background-color: green;
+  margin-left: -3px;
+  margin-right: -303px;
+  margin-top: 282px;
+  margin-bottom: 10px;
+  transform: translateY(-100%) skewY(178deg);
+  transform-origin: right;
+  border-top: 3px solid black;
+   
 }
 .roulette-wrapper .wheel .row .card .rar_common h3{
-  margin-bottom: 8px;
+  background-color: grey;
+}
+.roulette-wrapper .wheel .row .card .line_rar_common{
+  width: 100%;
+  height: 20px;
+  background-color: grey;
+  margin-left: -3px;
   margin-right: -303px;
-  margin-left:3px;
-  margin-top: 274px;
-  background-color: gray;
-  border-bottom-right-radius: 8px;
-  border-bottom-left-radius: 8px;
-  text-align: center;
+  margin-top: 282px;
+  margin-bottom: 10px;
+  transform: translateY(-100%) skewY(178deg);
+  transform-origin: right;
+  border-top: 3px solid black;
+   
 }
 
 *{
@@ -129,4 +173,4 @@ body{
 }
 #rart { z-index: 2; }
 #vbuks { z-index: 3; }
-#selector { z-index: 4; }
+#line_rar { z-index: 2}

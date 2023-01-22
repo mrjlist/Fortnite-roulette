@@ -2,7 +2,7 @@ $(document).ready(function() {
 	//setup multiple rows of colours, can also add and remove while spinning but overall this is easier.
   import_images();
 	initWheel();
-  setTimeout(spinWheel, 3 * 1000);
+  setTimeout(spinWheel, 5 * 1000);
   });
 
 list_rar = ['rare', 'legendary', 'epic', 'uncommon', 'common']
@@ -15,6 +15,7 @@ function import_images(){
       url: 'https://fortnite-api.com/v2/shop/br'
     }).done(data => {
       var list_img = [];
+      var type_data = ["featured", "daily", "specialFeatured"];
       function cam1(q){
         if (window.list_rar.includes(q)){
           return q;
@@ -23,69 +24,30 @@ function import_images(){
           return null;
         }
       }
-      for(var x = 0; x < data["data"]["featured"]["entries"].length; x++){
-        if(data["data"]["featured"]["entries"][x]["bundle"] != null){
-          list_img.push(
-            {
-              "image":`${data["data"]["featured"]["entries"][x]["newDisplayAsset"]["materialInstances"][0]["images"]["Background"]}`,
-              "finalPrice": data["data"]["featured"]["entries"][x]["finalPrice"],
-              "rarity": null
-            }
+
+      for(var type = 0; type < 3; type++){
+        for(var x = 0; x < data["data"][type_data[type]]["entries"].length; x++){
+          if(data["data"][type_data[type]]["entries"][x]["bundle"] != null){
+            list_img.push(
+              {
+                "image":`${data["data"][type_data[type]]["entries"][x]["newDisplayAsset"]["materialInstances"][0]["images"]["Background"]}`,
+                "finalPrice": data["data"][type_data[type]]["entries"][x]["finalPrice"],
+                "rarity": null
+              }
+              );
+          }
+          else{
+            list_img.push(
+              {
+                "image":`${data["data"][type_data[type]]["entries"][x]["newDisplayAsset"]["materialInstances"][0]["images"]["Background"]}`,
+                "finalPrice": data["data"][type_data[type]]["entries"][x]["finalPrice"],
+                "rarity": cam1(data["data"][type_data[type]]["entries"][x]["items"][0]["rarity"]["value"])
+              }
             );
-        }
-        else{
-          list_img.push(
-            {
-              "image":`${data["data"]["featured"]["entries"][x]["newDisplayAsset"]["materialInstances"][0]["images"]["Background"]}`,
-              "finalPrice": data["data"]["featured"]["entries"][x]["finalPrice"],
-              "rarity": cam1(data["data"]["featured"]["entries"][x]["items"][0]["rarity"]["value"])
-            }
-          );
+          }
         }
       }
-      
-      for(var x = 0; x < data["data"]["daily"]["entries"].length; x++){
-        if(data["data"]["daily"]["entries"][x]["bundle"] != null){
-          list_img.push(
-            {
-              "image":`${data["data"]["daily"]["entries"][x]["newDisplayAsset"]["materialInstances"][0]["images"]["Background"]}`,
-              "finalPrice": data["data"]["daily"]["entries"][x]["finalPrice"],
-              "rarity": null
-            }
-          );
-        }
-        else{
-          list_img.push(
-            {
-              "image":`${data["data"]["daily"]["entries"][x]["newDisplayAsset"]["materialInstances"][0]["images"]["Background"]}`,
-              "finalPrice": data["data"]["daily"]["entries"][x]["finalPrice"],
-              "rarity": cam1(data["data"]["daily"]["entries"][x]["items"][0]["rarity"]["value"])
-            }  
-          );
-        }
-      }
-      
-      for(var x = 0; x < data["data"]["specialFeatured"]["entries"].length; x++){
-        if(data["data"]["specialFeatured"]["entries"][x]["bundle"] != null){
-          list_img.push(
-            {
-              "image":`${data["data"]["specialFeatured"]["entries"][x]["newDisplayAsset"]["materialInstances"][0]["images"]["Background"]}`,
-              "finalPrice": data["data"]["specialFeatured"]["entries"][x]["finalPrice"],
-              "rarity": null
-            }
-          );
-        }
-        else{
-          list_img.push(
-            {
-              "image":`${data["data"]["specialFeatured"]["entries"][x]["newDisplayAsset"]["materialInstances"][0]["images"]["Background"]}`,
-              "finalPrice": data["data"]["specialFeatured"]["entries"][x]["finalPrice"],
-              "rarity": cam1(data["data"]["specialFeatured"]["entries"][x]["items"][0]["rarity"]["value"])
-            }
-          );
-        }
-      }
-      
+
       data_img(list_img);
     });
   }
@@ -97,16 +59,17 @@ function import_images(){
 
     for(var x = 0; x < data.length; x++){
       row += `  <div class='card'>
+                  <div class='line_rar_${data[x]["rarity"]}' id='line_rar'>
+                  </div>
                   <div class='rar_${data[x]["rarity"]}' id='rart'>
                     <h3>${data[x]["finalPrice"]}</h3>
                   </div>
                   <div class='vb' id='vbuks'>
                     <img  src='https://fortnite-api.com/images/vbuck.png'>
                   </div>
-                  <div class='aa' id='aaa'>
+                  <div class='item_bg' id='item_bg_id'>
                     <img src='${data[x]["image"]}'>
                   </div>
-                  
                   
                 </div>`;
     }
@@ -213,11 +176,10 @@ function getRandomNumber() {
 
 function spinWheel(){
   var roll = getRandomNumber() +  2;
-  console.log(roll);
   var $wheel = $('.roulette-wrapper .wheel'),
   		order = generate_order(),
       position = order.indexOf(roll),
-      size_card = 306;
+      time = 15;
   //determine position where to land
   var rows = 12,
   		card = 300 + 3 * 2,
@@ -226,16 +188,10 @@ function spinWheel(){
   var randomize = Math.floor(Math.random() * 300) - (300/2);
   
   landingPosition = landingPosition + randomize;
-    
-  var object = {
-		x: Math.floor(Math.random() * 50) / 100,
-    y: Math.floor(Math.random() * 20) / 100
-	};
-
 
   $wheel.css({
-		'transition-timing-function':'cubic-bezier(0,'+ object.x +','+ object.y + ',1)',
-		'transition-duration':'10s',
+		'transition-timing-function':'cubic-bezier(0.3, 0, 0, 1)',
+		'transition-duration':`${time-1}s`,
 		'transform':'translate3d(-'+landingPosition+'px, 0px, 0px)'
 	});
   
@@ -247,5 +203,5 @@ function spinWheel(){
     
     var resetTo = -(position * card + randomize);
 		$wheel.css('transform', 'translate3d('+resetTo+'px, 0px, 0px)');
-  }, 10 * 1000);
+  }, time * 1000);
 }
