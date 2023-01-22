@@ -201,7 +201,7 @@ function spinWheel(){
 			'transition-duration':'',
 		});
     
-    var resetTo = -(position * card + randomize);
-		$wheel.css('transform', 'translate3d('+resetTo+'px, 0px, 0px)');
+    // var resetTo = -(position * card + randomize);
+		// $wheel.css('transform', `translate3d(${resetTo}px, 0px, 0px)`);
   }, time * 1000);
 }
